@@ -3,8 +3,10 @@ import schema from './schema'
 
 export function GET(request: NextRequest) {
     return NextResponse.json([
-        {id: 1, name: "John Doe"},
-        {id: 2, name: "Jane Doe"},
+        {id: 1, name: "Iphone", price: 6000},
+        {
+            id: 2, name: "MacBookPro14", price: 16000
+        }
     ])
 }
 
@@ -12,7 +14,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validation = schema.safeParse(body);
     if (!validation.success) {
-        return NextResponse.json(validation.error.errors, {status: 400});
+        return NextResponse.json({error: validation.error.errors}, {status: 400});
     }
-    return NextResponse.json({id: 1, name: body.name}, {status: 201});
+    return NextResponse.json({id: 1, name: body.name, price: body.price}, {status: 201})
 }
