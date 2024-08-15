@@ -5,7 +5,6 @@ import NavBar from "@/app/NavBar";
 import AuthProvider from '@/app/auth/authProvider'
 
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="winter">
-      <body className={inter.className}>
+      <body >
       <AuthProvider>
           <NavBar />
           <main className='p-5'>{children}</main>

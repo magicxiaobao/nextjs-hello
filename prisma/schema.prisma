@@ -89,3 +89,9 @@ model Authenticator {
 
   @@id([userId, credentialID])
 }
+
+model Product {
+  id Int @id @default(autoincrement())
+  name String @unique
+  price Float @default(0)
+}
